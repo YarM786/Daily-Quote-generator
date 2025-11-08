@@ -1,12 +1,10 @@
-# app.py
 import streamlit as st
 import random
-from datetime import date
 
 st.set_page_config(page_title="Daily Quote Generator", layout="centered")
-st.title("📜 Daily Quote Generator")
+st.title("📜 Quote Generator")
 
-# Sample quotes list (you can add more)
+# List of quotes
 QUOTES = [
     "The best way to get started is to quit talking and begin doing. – Walt Disney",
     "Don’t let yesterday take up too much of today. – Will Rogers",
@@ -20,14 +18,6 @@ QUOTES = [
     "The harder you work for something, the greater you’ll feel when you achieve it."
 ]
 
-# Generate daily quote based on current date (so it changes every day)
-def get_daily_quote():
-    random.seed(date.today().toordinal())  # same quote per day
-    return random.choice(QUOTES)
-
-st.header("✨ Today's Quote")
-st.markdown(f"> {get_daily_quote()}")
-
-# Button to get a random quote (optional)
-if st.button("Give me a random quote"):
+# Show a random quote every time
+if st.button("Give me a quote"):
     st.markdown(f"> {random.choice(QUOTES)}")
